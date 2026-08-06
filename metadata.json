@@ -1,0 +1,6 @@
+{
+  "name": "Generator Kalender Pendidikan SD",
+  "description": "Generator Kalender Pendidikan Sekolah Dasar Indonesia profesional, akurat, adaptif, dan siap cetak A4 Landscape 1 halaman.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
