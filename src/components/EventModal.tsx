@@ -85,7 +85,7 @@ export const EventModal: React.FC<EventModalProps> = ({
               placeholder="Contoh: Masa Pengenalan Lingkungan Sekolah (MPLS)"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="w-full text-sm text-black bg-white border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
             />
           </div>
 
@@ -104,7 +104,7 @@ export const EventModal: React.FC<EventModalProps> = ({
                     setDateEnd(e.target.value);
                   }
                 }}
-                className="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                className="w-full text-sm text-black bg-white border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
               />
             </div>
             <div>
@@ -116,7 +116,7 @@ export const EventModal: React.FC<EventModalProps> = ({
                 required
                 value={dateEnd}
                 onChange={(e) => setDateEnd(e.target.value)}
-                className="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                className="w-full text-sm text-black bg-white border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
               />
             </div>
           </div>
