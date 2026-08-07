@@ -176,7 +176,7 @@ export const MonthCard: React.FC<MonthCardProps> = ({
       </div>
 
       {/* Keterangan Box */}
-      <div className="flex-1 p-1 print:p-0.5 bg-slate-50 flex flex-col justify-start min-h-[58px] print:min-h-[52px]">
+      <div className="flex-1 p-1 print:px-0.5 print:py-0 bg-slate-50 flex flex-col justify-start min-h-[48px] print:min-h-[42px]">
         <div className="font-extrabold text-[8px] print:text-[7px] text-slate-900 border-b border-slate-200 pb-[1px] mb-[2px] uppercase tracking-wider">
           Keterangan:
         </div>

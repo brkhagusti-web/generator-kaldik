@@ -14,6 +14,15 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
 }) => {
   return (
     <div className="w-full text-center border-b-2 border-slate-900 pb-2 mb-2 print:pb-1 print:mb-1 print:border-slate-800">
+      {identity.logo && (
+  <div className="flex justify-center mb-1">
+    <img
+      src={identity.logo}
+      alt="Logo Sekolah"
+      className="w-14 h-14 print:w-10 print:h-10 object-contain"
+    />
+  </div>
+)}
       <h1 className="text-xl print:text-base font-extrabold tracking-wide uppercase text-slate-900 leading-tight">
         KALENDER PENDIDIKAN
       </h1>

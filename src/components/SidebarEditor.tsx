@@ -296,7 +296,67 @@ export const SidebarEditor: React.FC<SidebarEditorProps> = ({
                 className="w-full bg-slate-950 border border-slate-800 text-slate-100 rounded-lg px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none"
               />
             </div>
+<div>
+  <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">
+    Logo Sekolah
+  </label>
 
+  <div className="flex items-center gap-3">
+    {identity.logo ? (
+      <div className="relative">
+        <img
+          src={identity.logo}
+          alt="Logo Sekolah"
+          className="w-16 h-16 object-contain bg-white rounded-lg border border-slate-700 p-1"
+        />
+
+        <button
+          type="button"
+          onClick={() => handleIdentityInput("logo", "")}
+          className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-600 text-white text-xs flex items-center justify-center hover:bg-red-700"
+          title="Hapus logo"
+        >
+          ×
+        </button>
+      </div>
+    ) : (
+      <div className="w-16 h-16 rounded-lg border border-dashed border-slate-700 flex items-center justify-center text-slate-500 text-[10px] text-center">
+        Belum ada logo
+      </div>
+    )}
+
+    <label className="cursor-pointer inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">
+      <Upload className="w-4 h-4" />
+      Upload Logo
+
+      <input
+        type="file"
+        accept="image/png,image/jpeg,image/webp"
+        className="hidden"
+        onChange={(e) => {
+          const file = e.target.files?.[0];
+
+          if (!file) return;
+
+          const reader = new FileReader();
+
+          reader.onload = () => {
+            if (typeof reader.result === "string") {
+              handleIdentityInput("logo", reader.result);
+            }
+          };
+
+          reader.readAsDataURL(file);
+          e.target.value = "";
+        }}
+      />
+    </label>
+  </div>
+
+  <p className="text-[10px] text-slate-500 mt-1">
+    PNG, JPG, atau WebP. Logo akan digunakan pada dokumen kalender.
+  </p>
+</div>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">

@@ -36,6 +36,7 @@ export interface SchoolIdentity {
   teacherClass: string;  // e.g. "I A", "IV", "VI"
   city: string;          // Kota tempat TTD
   documentDate: string;  // Tanggal pembuatan document e.g. "14 Juli 2025"
+    logo?: string;
 }
 
 export interface AcademicYearConfig {
