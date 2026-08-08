@@ -458,17 +458,45 @@ export const SidebarEditor: React.FC<SidebarEditorProps> = ({
               </div>
             </div>
 
-            <div>
-              <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">
-                NIP / NIPPPK Guru
-              </label>
-              <input
-                type="text"
-                value={identity.teacherNip}
-                onChange={(e) => handleIdentityInput("teacherNip", e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 text-slate-100 rounded-lg px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
+           <div>
+  <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">
+    Jenis Nomor Identitas Guru
+  </label>
+
+  <select
+    value={identity.teacherNipLabel}
+    onChange={(e) =>
+      handleIdentityInput(
+        "teacherNipLabel",
+        e.target.value
+      )
+    }
+    className="w-full bg-slate-950 border border-slate-800 text-slate-100 rounded-lg px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+  >
+    <option value="NIP">NIP</option>
+    <option value="NI PPPK">NI PPPK</option>
+  </select>
+</div>
+
+<div>
+  <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">
+    Nomor Identitas Guru
+  </label>
+
+  <input
+    type="text"
+    value={identity.teacherNip}
+    onChange={(e) =>
+      handleIdentityInput("teacherNip", e.target.value)
+    }
+    placeholder={
+      identity.teacherNipLabel === "NI PPPK"
+        ? "Masukkan NI PPPK"
+        : "Masukkan NIP"
+    }
+    className="w-full bg-slate-950 border border-slate-800 text-slate-100 rounded-lg px-3 py-2 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+  />
+</div>
           </div>
         )}
 

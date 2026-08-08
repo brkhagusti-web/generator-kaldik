@@ -23,6 +23,7 @@ export default function App() {
 principalNip: "12312312312312",
 teacherName: "Barkah Agusti",
 teacherNip: "263472364723",
+teacherNipLabel: "NIP",
     teacherClass: "VI A",
     city: "Bogor",
     documentDate: "14 Juli 2025",

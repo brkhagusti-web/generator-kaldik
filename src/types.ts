@@ -34,7 +34,8 @@ export interface SchoolIdentity {
   principalName: string; // Nama Kepala Sekolah
   principalNip: string;  // NIP Kepala Sekolah
   teacherName: string;   // Nama Guru Kelas
-  teacherNip: string;    // NIP / NIPPPK Guru
+  teacherNip: string;    // NIP atau NI PPPK Guru
+teacherNipLabel: "NIP" | "NI PPPK";
   teacherClass: string;  // e.g. "I A", "IV", "VI"
   city: string;          // Kota tempat TTD
   documentDate: string;  // Tanggal pembuatan document e.g. "14 Juli 2025"

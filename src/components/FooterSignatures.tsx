@@ -36,8 +36,9 @@ export const FooterSignatures: React.FC<FooterSignaturesProps> = ({ identity }) 
           {identity.teacherName || "(Nama Guru)"}
         </p>
         <p className="font-medium text-slate-700">
-          NIP. {identity.teacherNip || "...................................."}
-        </p>
+  {identity.teacherNipLabel}.{" "}
+  {identity.teacherNip || "...................................."}
+</p>
       </div>
     </div>
   );
