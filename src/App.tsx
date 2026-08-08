@@ -171,10 +171,10 @@ teacherNipLabel: "NIP",
       </header>
 
       {/* Main Workspace Layout */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden print:block">
         {/* Sidebar Drawer */}
         {isSidebarOpen && (
-          <aside className="w-80 flex-shrink-0 z-20 h-[calc(100vh-53px)]">
+          <aside className="w-80 flex-shrink-0 z-20 h-[calc(100vh-53px)] print:hidden">
             <SidebarEditor
               identity={identity}
               onIdentityChange={setIdentity}
@@ -192,7 +192,7 @@ teacherNipLabel: "NIP",
         )}
 
         {/* Live Document Canvas */}
-        <main className="flex-1 bg-slate-900 overflow-y-auto p-4 sm:p-6 print:p-0">
+        <main className="flex-1 min-w-0 bg-slate-900 overflow-y-auto p-4 sm:p-6 print:p-0 print:w-full">
           <div className="max-w-6xl mx-auto space-y-3 print:max-w-none print:m-0 print:p-0">
             {/* Real-time Automated Validation Banner */}
             <div className="print:hidden">
