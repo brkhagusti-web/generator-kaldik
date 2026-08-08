@@ -65,6 +65,28 @@ function formatDate(date: Date): string {
   });
 }
 
+function cleanEventTitle(
+  title: string,
+  yearStart: number,
+  yearEnd: number
+): string {
+  let cleaned = title.trim();
+
+  // Hapus angka tanggal di awal judul.
+  // Contoh: "13 Libur Semester Genap TA /"
+  // menjadi "Libur Semester Genap TA /"
+  cleaned = cleaned.replace(/^\d{1,2}\s+/, "");
+
+  // Ganti "TA /" atau "TA" di akhir judul
+  // dengan tahun ajaran sesuai input pengguna.
+  cleaned = cleaned.replace(
+    /\bTA\s*\/?\s*$/i,
+    `TA ${yearStart}/${yearEnd}`
+  );
+
+  return cleaned.trim();
+}
+
 function countAffectedSchoolDays(
   event: KaldikEvent,
   semesterStart: Date,
@@ -337,8 +359,12 @@ export const EffectiveWeekAnalysis: React.FC<
                         </td>
 
                         <td className="border border-slate-300 px-2 py-1">
-                          {detail.title}
-                        </td>
+  {cleanEventTitle(
+    detail.title,
+    config.yearStart,
+    config.yearEnd
+  )}
+</td>
 
                         <td className="border border-slate-300 px-2 py-1 text-center capitalize">
                           {detail.category.replaceAll(
@@ -429,8 +455,12 @@ export const EffectiveWeekAnalysis: React.FC<
                       </td>
 
                       <td className="border border-slate-300 px-2 py-1">
-                        {item.event.title}
-                      </td>
+  {cleanEventTitle(
+    item.event.title,
+    config.yearStart,
+    config.yearEnd
+  )}
+</td>
 
                       <td className="border border-slate-300 px-2 py-1 text-center capitalize">
                         {item.event.category.replaceAll(
