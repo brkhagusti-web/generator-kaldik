@@ -131,6 +131,7 @@ function detectCategory(title: string): string {
   // Hari libur nasional / keagamaan
   if (
     text.includes("libur nasional") ||
+    text.includes("libur awal puasa") ||
     text.includes("tahun baru") ||
     text.includes("imlek") ||
     text.includes("nyepi") ||
