@@ -4,7 +4,7 @@ import {
   KaldikEvent,
   SchoolIdentity,
 } from "./types";
-import { PRESET_EVENTS_2025_2026 } from "./data/presetTemplates";
+
 import { validateCalendarData } from "./utils/calendarUtils";
 import { PrintDocument } from "./components/PrintDocument";
 import { SidebarEditor } from "./components/SidebarEditor";
@@ -36,7 +36,7 @@ teacherNip: "263472364723",
   });
 
   // 3. Calendar Events State
-  const [events, setEvents] = useState<KaldikEvent[]>(PRESET_EVENTS_2025_2026);
+  const [events, setEvents] = useState<KaldikEvent[]>([]);
 
   // 4. Modals State
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);

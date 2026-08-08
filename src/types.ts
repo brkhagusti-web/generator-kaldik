@@ -1,5 +1,6 @@
-export type EventCategory = 
+export type EventCategory =
   | "libur_nasional"
+  | "cuti_bersama"
   | "libur_semester"
   | "mpls"
   | "asesmen"
@@ -19,10 +20,11 @@ export interface CategoryInfo {
 export interface KaldikEvent {
   id: string;
   title: string;
-  dateStart: string; // YYYY-MM-DD
-  dateEnd: string;   // YYYY-MM-DD (same as dateStart if single day)
+  dateStart: string;
+  dateEnd: string;
   category: EventCategory;
   notes?: string;
+  source?: "pemerintah_pusat" | "kaldik_daerah" | "ai_parser" | "manual";
 }
 
 export interface SchoolIdentity {
@@ -65,4 +67,17 @@ export interface ValidationResult {
   warnings: string[];
   errors: string[];
   checkedCount: number;
+}
+export interface EffectiveWeekResult {
+  semester: string;
+  calendarWeeks: number;
+  ineffectiveWeeks: number;
+  effectiveWeeks: number;
+  ineffectiveDetails: {
+    week: string;
+    dateRange: string;
+    affectedDays: number;
+    title: string;
+    category: EventCategory;
+  }[];
 }

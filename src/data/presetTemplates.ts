@@ -243,24 +243,3 @@ export const PRESET_EVENTS_2025_2026: KaldikEvent[] = [
   },
 ];
 
-export const PRESET_EVENTS_2024_2025: KaldikEvent[] = PRESET_EVENTS_2025_2026.map((evt) => {
-  const newStart = evt.dateStart.replace("2025", "2024").replace("2026", "2025");
-  const newEnd = evt.dateEnd.replace("2025", "2024").replace("2026", "2025");
-  return {
-    ...evt,
-    id: evt.id.replace("2025", "2024").replace("2026", "2025"),
-    dateStart: newStart,
-    dateEnd: newEnd,
-  };
-});
-
-export const PRESET_EVENTS_2026_2027: KaldikEvent[] = PRESET_EVENTS_2025_2026.map((evt) => {
-  const newStart = evt.dateStart.replace("2026", "2027").replace("2025", "2026");
-  const newEnd = evt.dateEnd.replace("2026", "2027").replace("2025", "2026");
-  return {
-    ...evt,
-    id: evt.id.replace("2026", "2027").replace("2025", "2026"),
-    dateStart: newStart,
-    dateEnd: newEnd,
-  };
-});

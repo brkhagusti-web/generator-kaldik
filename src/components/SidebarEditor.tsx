@@ -4,11 +4,7 @@ import {
   KaldikEvent,
   SchoolIdentity,
 } from "../types";
-import {
-  PRESET_EVENTS_2024_2025,
-  PRESET_EVENTS_2025_2026,
-  PRESET_EVENTS_2026_2027,
-} from "../data/presetTemplates";
+
 import { CATEGORIES } from "../data/categories";
 import {
   School,
@@ -63,17 +59,16 @@ export const SidebarEditor: React.FC<SidebarEditorProps> = ({
   };
 
   const handleYearChange = (startYear: number) => {
-    onConfigChange({
-      ...config,
-      yearStart: startYear,
-      yearEnd: startYear + 1,
-    });
+  onConfigChange({
+    ...config,
+    yearStart: startYear,
+    yearEnd: startYear + 1,
+  });
 
-    // Suggest loading matching preset
-    if (startYear === 2024) onLoadPreset(PRESET_EVENTS_2024_2025);
-    else if (startYear === 2025) onLoadPreset(PRESET_EVENTS_2025_2026);
-    else if (startYear === 2026) onLoadPreset(PRESET_EVENTS_2026_2027);
-  };
+  // Setiap tahun ajaran dimulai dengan kalender kosong.
+  // Kegiatan/libur akan dimasukkan melalui AI Parser atau manual.
+  onLoadPreset([]);
+};
 
   const filteredEvents = events.filter((e) =>
     e.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -485,7 +480,7 @@ export const SidebarEditor: React.FC<SidebarEditorProps> = ({
                 Pilih Tahun Ajaran
               </label>
               <div className="grid grid-cols-2 gap-2">
-                {[2024, 2025, 2026, 2027].map((startYear) => (
+                {[2025, 2026, 2027, 2028].map((startYear) => (
                   <button
                     key={startYear}
                     onClick={() => handleYearChange(startYear)}
@@ -501,39 +496,7 @@ export const SidebarEditor: React.FC<SidebarEditorProps> = ({
               </div>
             </div>
 
-            <hr className="border-slate-800" />
-
-            <div>
-              <label className="block text-[11px] font-bold text-slate-400 uppercase mb-1">
-                Muat Template Kaldik Resmi SD
-              </label>
-              <p className="text-[11px] text-slate-400 mb-2">
-                Mengisi otomatis kegiatan standar nasional SD (MPLS, Libur Nasional, ANBK, STS, SAS, Rapor).
-              </p>
-              <div className="space-y-2">
-                <button
-                  onClick={() => onLoadPreset(PRESET_EVENTS_2025_2026)}
-                  className="w-full text-left p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-blue-500 transition-colors flex items-center justify-between cursor-pointer"
-                >
-                  <div>
-                    <div className="font-bold text-white text-xs">Template Kaldik SD 2025/2026</div>
-                    <div className="text-[10px] text-slate-400">Standard Dinas Pendidikan SD</div>
-                  </div>
-                  <Calendar className="w-4 h-4 text-blue-400" />
-                </button>
-
-                <button
-                  onClick={() => onLoadPreset(PRESET_EVENTS_2024_2025)}
-                  className="w-full text-left p-2.5 rounded-lg bg-slate-950 border border-slate-800 hover:border-blue-500 transition-colors flex items-center justify-between cursor-pointer"
-                >
-                  <div>
-                    <div className="font-bold text-white text-xs">Template Kaldik SD 2024/2025</div>
-                    <div className="text-[10px] text-slate-400">Standard Dinas Pendidikan SD</div>
-                  </div>
-                  <Calendar className="w-4 h-4 text-blue-400" />
-                </button>
-              </div>
-            </div>
+           
 
             <hr className="border-slate-800" />
 

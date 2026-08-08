@@ -196,11 +196,15 @@ export const MonthCard: React.FC<MonthCardProps> = ({
                     style={{ backgroundColor: cat.color }}
                   />
                   <span className="font-bold text-slate-900 flex-shrink-0">
-                    {item.displayDateRange} :
-                  </span>
-                  <span className="text-slate-800 font-medium break-words">
-                    {item.title}
-                  </span>
+  {item.displayDateRange} —
+</span>
+                 <span className="text-slate-800 font-medium break-words">
+  {item.title
+    .replace(/^\s*:\s*\d{1,2}\s*/g, "")
+    .replace(/^\s*:\s*/g, "")
+    .replace(/^\s*\d{1,2}\s+(?=[A-Za-zÀ-ÿ])/g, "")
+    .trim()}
+</span>
                 </li>
               );
             })}
