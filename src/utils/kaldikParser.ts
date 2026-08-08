@@ -139,7 +139,11 @@ function detectCategory(title: string): string {
     text.includes("isra mi") ||
     text.includes("maulid nabi") ||
     text.includes("wafat yesus") ||
+text.includes("wafat isa al masih") ||
+text.includes("wafat isa almasih") ||
     text.includes("kenaikan yesus") ||
+text.includes("kenaikan isa al masih") ||
+text.includes("kenaikan isa almasih") ||
     text.includes("kelahiran yesus") ||
     text.includes("natal") ||
     text.includes("waisak") ||
