@@ -128,7 +128,7 @@ export const EventModal: React.FC<EventModalProps> = ({
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value as EventCategory)}
-              className="w-full text-sm border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="w-full text-sm text-black bg-white border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
             >
               {Object.values(CATEGORIES).map((cat) => (
                 <option key={cat.id} value={cat.id}>
