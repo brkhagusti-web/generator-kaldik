@@ -527,10 +527,29 @@ function removeDateFromTitle(text: string): string {
    * hapus angka tersebut.
    */
   title = title.replace(
-    /^\s*\d{1,2}\s+/,
-    " "
-  );
-
+  /^\s*[-:;,]?\s*\d{1,2}\s*[:;,]?\s*/,
+  ""
+);
+/*
+ * =========================================================
+ * HAPUS SISA NOMOR TANGGAL SETELAH PEMISAH
+ *
+ * Contoh:
+ * -17 : Kegiatan MPLS
+ * —17 : Kegiatan MPLS
+ * -4 : Sumatif Akhir Semester
+ * -11 : Hari Raya Idul Fitri
+ *
+ * menjadi:
+ * Kegiatan MPLS
+ * Sumatif Akhir Semester
+ * Hari Raya Idul Fitri
+ * =========================================================
+ */
+title = title.replace(
+  /^\s*[-]\s*\d{1,2}\s*[:;,]\s*/,
+  " "
+);
   /*
    * Hapus kata penghubung tanggal yang tersisa.
    */
